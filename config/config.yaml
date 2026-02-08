@@ -17,7 +17,7 @@ app:
   #   - America/New_York (美东时间 UTC-5/-4)
   #   - Europe/London (伦敦时间 UTC+0/+1)
   # 完整时区列表: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-  timezone: "Asia/Shanghai"
+  timezone: "America/New_York"
   show_version_update: true           # 显示版本更新提示
 
 
@@ -44,6 +44,12 @@ platforms:
       name: "bilibili 热搜"
     - id: "cls-hot"
       name: "财联社热门"
+    - id: "xueqiu"
+      name: "雪球"
+    - id: "jin10"
+      name: "金十数据"
+    - id: "fastbull"
+      name: "快讯通"
     - id: "ifeng"
       name: "凤凰网"
     - id: "tieba"
@@ -54,6 +60,23 @@ platforms:
       name: "抖音"
     - id: "zhihu"
       name: "知乎"
+    - id: "github"
+      name: "GitHub"
+    - id: "hackernews"
+      name: "Hacker News"
+    - id: "v2ex"
+      name: "V2EX"
+    - id: "zaobao"
+      name: "联合早报"
+    - id: "juejin"
+      name: "掘金"
+    - id: "pcbeta"
+      name: "远景论坛"
+    - id: "sspai"
+      name: "少数派"
+    - id: "producthunt"
+      name: "ProductHunt"
+
 
 
 
@@ -90,11 +113,7 @@ rss:
   # - 正整数：覆盖全局设置，只推送此天数内的文章
   # - 0：禁用此频道的新鲜度过滤，推送所有文章
   feeds:
-    - id: "hacker-news"
-      name: "Hacker News"
-      url: "https://hnrss.org/frontpage"
-      # max_age_days: 1               # 示例：只推送1天内的文章
-
+  # max_age_days: 1               # 示例：只推送1天内的文章
     - id: "ruanyifeng"
       name: "阮一峰的网络日志"
       url: "http://www.ruanyifeng.com/blog/atom.xml"
@@ -103,8 +122,37 @@ rss:
     - id: "yahoo-finance"
       name: "雅虎财经"
       url: "https://finance.yahoo.com/news/rssindex"
-      enabled: false                  # 禁用
+      enabled: true                  # 禁用
 
+    - id: "weekly-tw93"
+      name: "潮流周刊"
+      url: "https://weekly.tw93.fun/rss.xml"
+      enabled: true
+
+    - id: "initium-media"
+      name: "端傳媒 Initium Media"
+      url: "https://theinitium.com/rss/?itm=t0036"
+      enabled: true
+
+    - id: "wired"
+      name: "WIRED"
+      url: "https://www.wired.com/feed/rss"
+      enabled: true
+  
+    - id: "mr-will"
+      name: "Mr. Will"
+      url: "https://blog.mrwillcom.vercel.app/atom.xml"
+      enabled: true
+  
+    - id: "cnn"
+      name: "CNN"
+      url: "http://rss.cnn.com/rss/edition.rss"
+      enabled: true
+  
+    - id: "nyt"
+      name: "New York Times"
+      url: "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
+      enabled: true
     # 自定义源示例
     # - id: "custom-feed"
     #   name: "自定义源"
@@ -448,7 +496,7 @@ ai_analysis:
                                       # GitHub Action 部署默认推送约 20 次（每小时推送一次）， 约 0.1 元/天
                                       # Docker 部署默认推送 48 次(每半小时推送一次)， 约 0.2 元/天
 
-  include_rss: false                 # 是否包含 RSS 内容进行分析
+  include_rss: true                 # 是否包含 RSS 内容进行分析
 
   include_rank_timeline: true      # 是否传递完整排名时间线
                                     # false: 使用简化格式（排名范围+时间范围+出现次数）
